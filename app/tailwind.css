@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --radius: 12px;
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 224 20% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 20% 14%;
+    --primary: 250 56% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 224 20% 14%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 250 30% 95%;
+    --accent-foreground: 250 56% 57%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 250 56% 57%;
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 228 20% 7%;
+    --foreground: 210 20% 92%;
+    --card: 228 18% 11%;
+    --card-foreground: 210 20% 92%;
+    --popover: 228 18% 11%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 250 60% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 228 14% 15%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 228 14% 15%;
+    --muted-foreground: 218 14% 55%;
+    --accent: 250 20% 17%;
+    --accent-foreground: 250 60% 72%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 228 12% 18%;
+    --input: 228 12% 18%;
+    --ring: 250 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / 0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.3); }
+
+/* Step pulse */
+@keyframes stepPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.step-pulse {
+  animation: stepPulse 1.5s ease-in-out infinite;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
 }

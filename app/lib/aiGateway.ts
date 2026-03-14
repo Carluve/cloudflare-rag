@@ -39,7 +39,7 @@ export async function streamLLMResponse({
     });
   }
 
-  const gatewayId = "cloudflare-rag";
+  const gatewayId = "rag-demo";
   let providers = [
     {
       provider: "groq",
@@ -191,7 +191,7 @@ export async function llmResponse({
     return (response as { response: string }).response;
   }
 
-  const gatewayId = "cloudflare-rag";
+  const gatewayId = "rag-demo";
   const providers = [
     {
       provider: "groq",
